@@ -145,7 +145,7 @@ const expandedItems = ref([])
 
 const sidebarClasses = computed(() => {
   const widthClass = props.collapsed ? props.collapsedWidth : props.width
-  const baseClasses = `${widthClass} h-screen transition-all duration-300`
+  const baseClasses = `${widthClass} h-full transition-all duration-300`
 
   const variantClasses = {
     default: 'bg-gray-50 dark:bg-gray-800',
