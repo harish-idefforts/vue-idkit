@@ -112,7 +112,7 @@ const getTabClasses = (index) => {
 }
 
 const badgeClasses = computed(() => {
-  return 'inline-flex items-center justify-center w-4 h-4 ms-2 text-xs font-semibold text-blue-800 bg-blue-200 rounded-full'
+  return 'inline-flex items-center justify-center w-4 h-4 ml-2 text-xs font-semibold text-blue-800 bg-blue-200 rounded-full'
 })
 
 const selectTab = (index) => {

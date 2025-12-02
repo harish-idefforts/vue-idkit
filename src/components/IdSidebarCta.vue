@@ -16,7 +16,7 @@
       <button
         v-if="closable"
         type="button"
-        class="ms-auto -mx-1.5 -my-1.5 rounded-lg focus:ring-2 p-1 inline-flex items-center justify-center h-6 w-6"
+        class="ml-auto -mx-1.5 -my-1.5 rounded-lg focus:ring-2 p-1 inline-flex items-center justify-center h-6 w-6"
         :class="closeButtonClasses"
         :aria-label="closeAriaLabel"
         @click="handleClose"

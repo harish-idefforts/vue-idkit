@@ -171,6 +171,6 @@ const dotsClasses = computed(() => {
 })
 
 const labelClasses = computed(() => {
-  return 'ms-3 text-sm font-medium text-gray-700 dark:text-gray-300'
+  return 'ml-3 text-sm font-medium text-gray-700 dark:text-gray-300'
 })
 </script>

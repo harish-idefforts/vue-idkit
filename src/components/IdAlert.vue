@@ -6,7 +6,7 @@
         <component v-if="showIcon" :is="alertIcon" :class="iconClasses" />
 
         <!-- Content -->
-        <div class="flex-1" :class="{ 'ms-3': showIcon }">
+        <div class="flex-1" :class="{ 'ml-3': showIcon }">
           <h3 v-if="title" :class="titleClasses">
             {{ title }}
           </h3>
@@ -150,7 +150,7 @@ const closeButtonClasses = computed(() => {
     danger: 'bg-red-50 text-red-500 hover:bg-red-200 dark:bg-gray-800 dark:text-red-400 dark:hover:bg-gray-700'
   }
 
-  return `ms-auto -mx-1.5 -my-1.5 rounded-lg focus:ring-2 p-1.5 inline-flex items-center justify-center h-8 w-8 transition-colors duration-150 ${variantClasses[props.variant]}`
+  return `ml-auto -mx-1.5 -my-1.5 rounded-lg focus:ring-2 p-1.5 inline-flex items-center justify-center h-8 w-8 transition-colors duration-150 ${variantClasses[props.variant]}`
 })
 
 const dismiss = () => {

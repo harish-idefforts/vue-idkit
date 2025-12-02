@@ -114,7 +114,7 @@ const iconClasses = computed(() => {
 })
 
 const closeButtonClasses = computed(() => {
-  return 'inline-flex items-center p-0.5 ms-2 text-sm bg-transparent rounded-sm hover:bg-blue-200 hover:text-blue-900 dark:hover:bg-blue-800 dark:hover:text-blue-300 transition-colors duration-150'
+  return 'inline-flex items-center p-0.5 ml-2 text-sm bg-transparent rounded-sm hover:bg-blue-200 hover:text-blue-900 dark:hover:bg-blue-800 dark:hover:text-blue-300 transition-colors duration-150'
 })
 
 const handleDismiss = () => {

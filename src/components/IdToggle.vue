@@ -81,9 +81,9 @@ const toggleClasses = computed(() => {
 
 const labelClasses = computed(() => {
   const sizeClasses = {
-    sm: 'ms-2 text-sm',
-    md: 'ms-3 text-sm',
-    lg: 'ms-3 text-base'
+    sm: 'ml-2 text-sm',
+    md: 'ml-3 text-sm',
+    lg: 'ml-3 text-base'
   }
 
   const baseClasses = 'font-medium text-gray-900 dark:text-gray-300'

@@ -3,7 +3,7 @@
     :is="tag"
     :href="tag === 'a' ? href : undefined"
     :to="tag === 'router-link' ? href : undefined"
-    class="flex items-center ps-2.5 mb-5"
+    class="flex items-center pl-2.5 mb-5"
   >
     <!-- Logo slot or image prop -->
     <slot name="logo">
