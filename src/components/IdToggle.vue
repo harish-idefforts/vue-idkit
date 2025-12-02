@@ -74,7 +74,7 @@ const toggleClasses = computed(() => {
   }
 
   const baseClasses = 'relative bg-gray-200 rounded-full peer dark:bg-gray-700 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 dark:peer-focus:ring-primary-800'
-  const afterClasses = "after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:transition-all dark:border-gray-600"
+  const afterClasses = "after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:transition-all dark:border-gray-600"
 
   return `${baseClasses} ${sizeClasses[props.size]} ${colorClasses[props.color]} ${afterClasses} ${afterTransform[props.size]}`
 })

@@ -1,72 +1,74 @@
 <template>
   <aside :class="sidebarClasses">
-    <div class="h-full px-3 py-4 overflow-y-auto flex flex-col">
-      <slot>
-        <ul class="space-y-2 font-medium">
-          <li v-for="(item, index) in items" :key="index">
-            <template v-if="item.children">
-              <!-- Collapsible Item -->
-              <button
-                type="button"
-                :class="buttonClasses"
-                @click="toggleItem(item.id)"
-              >
-                <component v-if="item.icon" :is="item.icon" class="w-5 h-5" />
-                <span class="flex-1 text-left whitespace-nowrap">{{ item.label }}</span>
-                <IdBadge v-if="item.badge" :variant="item.badgeVariant || 'primary'" size="sm">
-                  {{ item.badge }}
-                </IdBadge>
-                <svg
-                  class="w-3 h-3 transition-transform duration-200"
-                  :class="{ 'rotate-180': expandedItems.includes(item.id) }"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 10 6"
+    <div class="h-full px-3 py-4 flex flex-col overflow-hidden">
+      <div class="flex-1 overflow-y-auto">
+        <slot>
+          <ul class="space-y-2 font-medium">
+            <li v-for="(item, index) in items" :key="index">
+              <template v-if="item.children">
+                <!-- Collapsible Item -->
+                <button
+                  type="button"
+                  :class="buttonClasses"
+                  @click="toggleItem(item.id)"
                 >
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-                </svg>
-              </button>
-              <!-- Submenu -->
-              <Transition name="submenu">
-                <ul v-if="expandedItems.includes(item.id)" class="py-2 space-y-2">
-                  <li v-for="(child, childIndex) in item.children" :key="childIndex">
-                    <component
-                      :is="itemTag"
-                      :href="itemTag === 'a' ? (child.href || '#') : undefined"
-                      :to="itemTag === 'router-link' ? (child.href || '/') : undefined"
-                      :class="[linkClasses, 'pl-11']"
-                      @click="handleItemClick(child, $event)"
-                    >
-                      <component v-if="child.icon" :is="child.icon" class="w-4 h-4" />
-                      {{ child.label }}
-                    </component>
-                  </li>
-                </ul>
-              </Transition>
-            </template>
-            <template v-else>
-              <!-- Single Item -->
-              <component
-                :is="itemTag"
-                :href="itemTag === 'a' ? (item.href || '#') : undefined"
-                :to="itemTag === 'router-link' ? (item.href || '/') : undefined"
-                :class="linkClasses"
-                @click="handleItemClick(item, $event)"
-              >
-                <component v-if="item.icon" :is="item.icon" class="w-5 h-5" />
-                <span class="flex-1">{{ item.label }}</span>
-                <IdBadge v-if="item.badge" :variant="item.badgeVariant || 'primary'" size="sm">
-                  {{ item.badge }}
-                </IdBadge>
-              </component>
-            </template>
-          </li>
-        </ul>
-      </slot>
+                  <component v-if="item.icon" :is="item.icon" class="w-5 h-5" />
+                  <span class="flex-1 text-left whitespace-nowrap">{{ item.label }}</span>
+                  <IdBadge v-if="item.badge" :variant="item.badgeVariant || 'primary'" size="sm">
+                    {{ item.badge }}
+                  </IdBadge>
+                  <svg
+                    class="w-3 h-3 transition-transform duration-200"
+                    :class="{ 'rotate-180': expandedItems.includes(item.id) }"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 10 6"
+                  >
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                  </svg>
+                </button>
+                <!-- Submenu -->
+                <Transition name="submenu">
+                  <ul v-if="expandedItems.includes(item.id)" class="py-2 space-y-2">
+                    <li v-for="(child, childIndex) in item.children" :key="childIndex">
+                      <component
+                        :is="itemTag"
+                        :href="itemTag === 'a' ? (child.href || '#') : undefined"
+                        :to="itemTag === 'router-link' ? (child.href || '/') : undefined"
+                        :class="[linkClasses, 'pl-11']"
+                        @click="handleItemClick(child, $event)"
+                      >
+                        <component v-if="child.icon" :is="child.icon" class="w-4 h-4" />
+                        {{ child.label }}
+                      </component>
+                    </li>
+                  </ul>
+                </Transition>
+              </template>
+              <template v-else>
+                <!-- Single Item -->
+                <component
+                  :is="itemTag"
+                  :href="itemTag === 'a' ? (item.href || '#') : undefined"
+                  :to="itemTag === 'router-link' ? (item.href || '/') : undefined"
+                  :class="linkClasses"
+                  @click="handleItemClick(item, $event)"
+                >
+                  <component v-if="item.icon" :is="item.icon" class="w-5 h-5" />
+                  <span class="flex-1">{{ item.label }}</span>
+                  <IdBadge v-if="item.badge" :variant="item.badgeVariant || 'primary'" size="sm">
+                    {{ item.badge }}
+                  </IdBadge>
+                </component>
+              </template>
+            </li>
+          </ul>
+        </slot>
+      </div>
 
       <!-- Collapse Toggle Button -->
-      <div v-if="collapsible" class="mt-auto pt-4">
+      <div v-if="collapsible" class="pt-4">
         <button
           type="button"
           :class="collapseButtonClasses"
